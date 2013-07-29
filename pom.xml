@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.terracotta.maven.plugins</groupId>
   <artifactId>junit-categories-maven-plugin</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>maven-plugin</packaging>
   <name>JUnit Categories Maven Plugin</name>
 
@@ -63,7 +62,7 @@
   </build>
   <scm>
     <url>https://github.com/Terracotta-OSS/junit-categories-maven-plugin</url>
-    <tag>HEAD</tag>
+    <tag>release-1.0.0</tag>
     <connection>scm:git:ssh://git@github.com/Terracotta-OSS/junit-categories-maven-plugin.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/Terracotta-OSS/junit-categories-maven-plugin.git</developerConnection>
   </scm>
