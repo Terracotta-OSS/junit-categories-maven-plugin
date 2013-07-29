@@ -61,10 +61,11 @@
       </plugin>
     </plugins>
   </build>
-
   <scm>
-    <connection>scm:svn:https://unknown/yet</connection>
-    <developerConnection>scm:svn:https://unknown/yet</developerConnection>
+    <url>https://github.com/Terracotta-OSS/junit-categories-maven-plugin</url>
+    <tag>HEAD</tag>
+    <connection>scm:git:ssh://git@github.com:Terracotta-OSS/junit-categories-maven-plugin.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com:Terracotta-OSS/junit-categories-maven-plugin.git</developerConnection>
   </scm>
 
   <distributionManagement>

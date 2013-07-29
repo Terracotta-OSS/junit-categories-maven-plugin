@@ -1,5 +1,6 @@
 package org.terracotta.maven.plugins.list.junit.categories;
 
+import junit.framework.TestCase;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.artifact.DependencyResolutionRequiredException;
 import org.apache.maven.plugin.AbstractMojo;
@@ -128,10 +129,11 @@ public class ListJunitCategoriesMojo extends AbstractMojo {
       }
       categoriesOnClass.addAll(findSuperclassCategories(testClass));
       Method[] methods = testClass.getDeclaredMethods();
+      boolean classDoesExtendTestCase = doesExtendTestCase(testClass);
       for (Method method : methods) {
         // only test methods are considered !
         Test testAnnotationOnMethod = method.getAnnotation(Test.class);
-        if (testAnnotationOnMethod !=null) {
+        if (testAnnotationOnMethod != null || (classDoesExtendTestCase &&  method.getName().startsWith("test"))) {
           Category categoryAnnotationOnMethod = method.getAnnotation(Category.class);
           if (categoryAnnotationOnMethod !=null) {
             List<Class> categoriesOnMethod =  new ArrayList<Class>();
@@ -158,6 +160,18 @@ public class ListJunitCategoriesMojo extends AbstractMojo {
       }
     }
     return categoriesMap;
+  }
+
+  boolean doesExtendTestCase(Class testClass) {
+    Class superclass = testClass.getSuperclass();
+    if(superclass == null || superclass.equals(Object.class)) {
+      return false;
+    } else if(superclass.equals(TestCase.class)) {
+      return true;
+    }
+    else {
+      return doesExtendTestCase(superclass);
+    }
   }
 
   private void createListOfMethodsIfNotExisting(Map<Class, Map<Class, List<Method>>> categoriesMap, Class testClass, Class aClass) {

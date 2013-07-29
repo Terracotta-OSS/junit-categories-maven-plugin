@@ -1,14 +1,11 @@
 package categorized.tests;
 
-import categories.FastTests;
-import categories.SlowTests;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 
 /**
  * @author: Anthony Dahanne
  */
-public class InheritedAnnotatedClass extends AnnotatedClass {
+public class InheritedAnnotatedClass extends OldSchoolTestClass {
 
   @Test
   public void testSlowInherited() {
